@@ -1,0 +1,33 @@
+# Worked example schema for the bundled `example_database` (see examples/).
+#
+# This schema is OPTIONAL. It tells the ingester which metadata fields to
+# extract from each record and store on every chunk. Without it, ingestion
+# still works via the generic fallback (auto-captured metadata).
+#
+# Matched to a database by filename: this file (schemas/example_database.yaml)
+# applies to the database folder data/raw/example_database/.
+
+database: example_database
+description: >
+  Synthetic Widget Assembly Line documents used to demonstrate the APS-RAG
+  ingestion + retrieval pipeline end to end.
+
+fields:
+  # <field_name>:  the metadata key stored on each chunk
+  #   source:      OPTIONAL raw key to read from (defaults to <field_name>)
+  #   type:        OPTIONAL string|integer|float|date|datetime|list|bool
+  #   description: OPTIONAL human note
+  #   default:     OPTIONAL value used when the raw key is absent
+  title:
+    type: string
+    description: Human-readable document title.
+  author:
+    type: string
+    description: Who authored the record.
+  creation_datetime:
+    type: datetime
+    description: ISO-8601 creation timestamp.
+  system:
+    type: string
+    description: Subsystem the document is about (e.g. calibration, packaging).
+    default: unknown

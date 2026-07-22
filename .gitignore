@@ -1,0 +1,71 @@
+# ── Python ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Secrets & local config (NEVER commit real values) ──────────────────────
+.env
+*.env
+!.env.example
+config/config.yaml
+config/environments/development.yaml
+config/environments/production.yaml
+config/environments/local.yaml
+# The committed, documented templates:
+!.env.example
+!config/config.example.yaml
+!config/environments/base.yaml
+
+# ── User data (folder-per-database) — never publish user documents ─────────
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+
+# ── Downloaded model weights (fetch with scripts/download_models.py) ───────
+models/*
+!models/.gitkeep
+
+# ── Virtual environments ───────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Tests / coverage ───────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Logs & runtime output ──────────────────────────────────────────────────
+*.log
+logs/
+results/
+
+# ── Jupyter ────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── IDE / OS ───────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Vector / graph store local data & dumps ────────────────────────────────
+*.qdrant
+*.dump
+qdrant_storage/
+es_data/
+
+# ── Release-process artifacts (kept on disk for review; NOT for the public repo) ──
+# MIGRATION_PLAN.md names the origin institution; SANITIZATION_REPORT.md lists the
+# specific names/hosts that were removed. Excluded so neither re-introduces that
+# content into public history. See PUBLISH.md.
+MIGRATION_PLAN.md
+SANITIZATION_REPORT.md

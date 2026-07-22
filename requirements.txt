@@ -1,0 +1,71 @@
+# =============================================================================
+# APS-RAG — Python dependencies (Python 3.11 recommended; 3.10–3.13 supported)
+# =============================================================================
+# Install:   pip install -r requirements.txt
+# GPU note:  `torch` below installs the default (CPU or CUDA per your platform).
+#            For a specific CUDA build, install torch first from the PyTorch
+#            index, e.g.:
+#              pip install torch --index-url https://download.pytorch.org/whl/cu121
+#            then `pip install -r requirements.txt`.
+# =============================================================================
+
+# ── LangChain / LangGraph ────────────────────────────────────────────────────
+langchain>=0.3,<2
+langchain-core>=0.3,<2
+langchain-text-splitters>=0.3,<2      # the chunker uses RecursiveCharacterTextSplitter
+langgraph>=0.2,<2
+
+# ── LLM backends ─────────────────────────────────────────────────────────────
+langchain-openai>=0.2,<2              # DEFAULT backend: any OpenAI-compatible gateway
+langchain-huggingface>=0.1,<2         # local e5 embeddings wrapper
+
+# ── Embedding + reranker models ──────────────────────────────────────────────
+transformers>=4.44,<5                 # loads the Jina reranker (trust_remote_code)
+sentence-transformers>=3.0,<6         # embedding backend used by HuggingFaceEmbeddings
+torch>=2.2                            # see GPU note above
+huggingface-hub>=0.24                 # scripts/download_models.py
+
+# ── Knowledge graph (Neo4j + LlamaIndex property graph) ──────────────────────
+llama-index>=0.11,<0.15
+llama-index-core>=0.11,<0.15
+llama-index-graph-stores-neo4j>=0.3
+neo4j>=5.14,<6                        # pinned <6 for llama-index-graph-stores-neo4j compat
+
+# ── Vector + keyword stores ──────────────────────────────────────────────────
+qdrant-client>=1.11
+elasticsearch>=8.10,<9               # match your Elasticsearch server major version
+
+# ── API server ───────────────────────────────────────────────────────────────
+fastapi>=0.115
+uvicorn[standard]>=0.31
+pydantic>=2.5,<3
+pydantic-settings>=2.2
+
+# ── HTTP + utilities ─────────────────────────────────────────────────────────
+httpx>=0.27
+requests>=2.31
+PyYAML>=6.0
+python-dotenv>=1.0
+Jinja2>=3.1
+numpy>=1.26
+pandas>=2.0
+beautifulsoup4>=4.12
+
+# ── Evaluation / InPARS QA metrics ───────────────────────────────────────────
+nltk>=3.9
+rouge-score>=0.1.2
+bert-score>=0.3.13
+
+# ── Testing ──────────────────────────────────────────────────────────────────
+pytest>=8.0
+pytest-asyncio>=0.23
+
+# =============================================================================
+# OPTIONAL EXTRAS — install only if you enable these features.
+#   Site-specific agent tools (disabled by default in config):
+#     pip install pyepics sympy tavily-python RestrictedPython
+#   Multimodal image-search pipeline (pipelines/image_search):
+#     pip install faiss-cpu Pillow aiohttp
+#   MCP tool servers (mcp_servers/):
+#     pip install mcp
+# =============================================================================

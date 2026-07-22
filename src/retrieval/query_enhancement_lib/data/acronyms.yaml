@@ -1,0 +1,30 @@
+# =============================================================================
+# Acronym / abbreviation dictionary  (OPTIONAL — safe to leave empty)
+# =============================================================================
+# The AcronymResolver (part of the query-enhancement pipeline) expands domain
+# acronyms found in a user's query into their full form(s) BEFORE retrieval,
+# which improves recall on jargon-heavy corpora.
+#
+# This ships EMPTY on purpose: with no entries the resolver runs in harmless
+# pass-through mode (queries are used verbatim). Add your own domain acronyms
+# to switch it on — no code change required.
+#
+# SCHEMA
+#   abbreviations:                 # the key `acronyms:` is also accepted
+#     <CANONICAL>: <definition>
+#     • <CANONICAL> — the upper-case acronym, 2–10 characters.
+#     • <definition> — the expansion. For MULTIPLE expansions, separate them
+#       with a pipe "|", e.g.  RAG: "retrieval augmented generation | RAG system"
+#
+# To enable: replace `{}` below with your entries (indented two spaces), or
+# uncomment and adapt the five examples.
+# =============================================================================
+
+abbreviations: {}
+
+  # ── 5 example entries (uncomment and edit for your own domain) ──────────────
+  # API: Application Programming Interface
+  # CPU: Central Processing Unit
+  # RAG: retrieval augmented generation | retrieval-augmented generation
+  # KG:  Knowledge Graph
+  # LLM: Large Language Model | large language model

@@ -1,0 +1,33 @@
+# =============================================================================
+# Synonym dictionary  (OPTIONAL — safe to leave empty)
+# =============================================================================
+# The SynonymManager (part of the query-enhancement pipeline) expands a query
+# term into equivalent domain terms BEFORE retrieval — e.g. mapping colloquial
+# vocabulary to the formal terms that appear in your documents (and vice-versa).
+#
+# This ships EMPTY on purpose: with no entries the manager runs in harmless
+# pass-through mode. Add your own domain synonyms to switch it on — no code
+# change required.
+#
+# SCHEMA
+#   synonyms:
+#     <canonical_term>:
+#       synonyms: [<term1>, <term2>, ...]
+#
+# To enable: replace `{}` below with your entries (indented two spaces), or
+# uncomment and adapt the five examples.
+# =============================================================================
+
+synonyms: {}
+
+  # ── 5 example entries (uncomment and edit for your own domain) ──────────────
+  # document:
+  #   synonyms: ["file", "record", "report", "paper"]
+  # error:
+  #   synonyms: ["fault", "failure", "issue", "problem"]
+  # configuration:
+  #   synonyms: ["config", "settings", "setup", "parameters"]
+  # retrieve:
+  #   synonyms: ["fetch", "search", "look up", "find"]
+  # summary:
+  #   synonyms: ["overview", "digest", "recap", "abstract"]

@@ -1,0 +1,6 @@
+torch>=2.1
+transformers>=4.40
+Pillow>=10.0
+faiss-cpu>=1.7.4
+aiohttp>=3.9
+numpy>=1.24

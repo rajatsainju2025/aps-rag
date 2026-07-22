@@ -1,0 +1,7 @@
+Intake Station Notes
+
+The intake station scans each incoming widget's barcode and records its lot
+number. Lots that fail the visual inspection are diverted to the rework bin.
+Typical intake rate is 130 units per hour, slightly above the line's 120 u/h
+throughput, so a small buffer accumulates before calibration. The buffer is
+capped at 25 units; beyond that, intake pauses until calibration catches up.

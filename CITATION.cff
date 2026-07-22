@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "APS-RAG: Corrective Agentic Graph-RAG"
+abstract: >-
+  A retrieval-augmented generation system combining hybrid retrieval
+  (dense vectors + BM25 + a knowledge graph), cross-encoder reranking with a
+  graph-proximity signal, query enhancement, and an agentic corrective
+  generation loop.
+type: software
+version: "0.1.0"
+license: MIT
+# TODO: fill in authors, DOI, and repository URL before publication.
+authors:
+  - family-names: "TODO-LastName"
+    given-names: "TODO-FirstName"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/TODO-org/aps-rag"
+# doi: "10.5281/zenodo.TODO"
+keywords:
+  - retrieval-augmented-generation
+  - knowledge-graph
+  - reranking
+  - information-retrieval
+  - llm
+references:
+  - type: article
+    title: "InPars: Data Augmentation for Information Retrieval using Large Language Models"
+    authors:
+      - family-names: Bonifacio
+        given-names: Luiz
+    year: 2022
+    notes: "Methodology behind scripts/generate_inpars.py (question + nuggets generation)."

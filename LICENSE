@@ -1,0 +1,34 @@
+MIT License
+
+Copyright (c) 2026 APS-RAG maintainers
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+NOTE ON MODEL LICENSES (not covered by the MIT license above)
+
+This project's CODE is MIT-licensed. The default MODELS it downloads have their
+own licenses, which you are responsible for complying with:
+
+  * Embedding model  intfloat/e5-large-v2      — MIT
+  * Reranker model   jinaai/jina-reranker-v3    — CC BY-NC 4.0 (NON-COMMERCIAL)
+
+If you need a fully commercially-usable stack, set a permissively-licensed
+reranker in your config, e.g. `agent.reranker_model_name: BAAI/bge-reranker-v2-m3`
+(Apache-2.0). See scripts/download_models.py and config/config.example.yaml.

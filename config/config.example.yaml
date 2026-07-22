@@ -1,0 +1,84 @@
+# =============================================================================
+# APS-RAG — main configuration (documented template)
+# =============================================================================
+# HOW TO USE
+#   1. Copy this file to  config/config.yaml   (that copy is gitignored).
+#   2. Copy .env.example to .env and fill in secrets (API keys, DB passwords).
+#   3. Edit values below to point at your services / models.
+#
+# PRECEDENCE (highest first): environment variables  >  config.yaml  >  these
+# defaults. SECRETS (api keys, passwords) belong in .env — NOT in this file.
+# Every setting here can also be overridden by an env var (shown in comments).
+# =============================================================================
+
+environment: development
+
+# ── LLM backend ─────────────────────────────────────────────────────────────
+# The DEFAULT backend is any OpenAI-compatible gateway. Point it at OpenAI,
+# Azure OpenAI, vLLM, Ollama, LM Studio, TGI, etc.
+llm:
+  provider: openai_compatible          # "openai_compatible" | "argo"  (env: LLM_PROVIDER)
+  base_url: https://api.openai.com/v1  # your gateway's /v1 URL         (env: LLM_BASE_URL)
+  # api_key: SET THIS IN .env AS LLM_API_KEY  (leave blank for local gateways like Ollama)
+  model: gpt-4o-mini                   # default model for all roles    (env: LLM_MODEL)
+  temperature: 0.0
+  max_tokens: 4096
+  timeout: 240.0
+  # Optional per-role overrides (blank → use `model` above):
+  synthesis_model: ""     # final answer generation
+  routing_model: ""       # intent classification / routing (cheap model ok)
+  critique_model: ""      # self-critique quality gate
+  judge_model: ""         # LLM-as-judge evaluation
+  extraction_model: ""    # KG entity/relation extraction
+
+# ── Vector + keyword stores + embeddings ─────────────────────────────────────
+vector:
+  qdrant_host: localhost
+  qdrant_port: 6333
+  es_host: localhost
+  es_port: 9200
+  # es_username / es_password: set in .env (ELASTICSEARCH_USERNAME / _PASSWORD)
+  embedding_model: intfloat/e5-large-v2   # HF id or local path (see scripts/download_models.py)
+  embedding_device: cuda:0       # "cpu" on CPU-only hosts
+  embedding_dim: 1024            # must match the embedding model's output dim
+
+# ── Knowledge graph (Neo4j) — optional, used by --build-kg and graph retrieval ─
+graph:
+  neo4j_uri: bolt://localhost:7687   # env: NEO4J_URI
+  # neo4j_user / neo4j_password: set in .env (NEO4J_USERNAME / NEO4J_PASSWORD)
+
+# ── Chunking (the default granular strategy is preserved verbatim) ───────────
+chunking:
+  strategy: granular-chunking    # "granular-chunking" (default) | "whole-doc"
+  pre_chunk_size: 1000
+  pre_chunk_overlap: 200
+  max_chunk_size: 4000
+  chunk_overlap: 200
+
+# ── Retrieval + reranking ────────────────────────────────────────────────────
+agent:
+  top_k: 100                     # candidates retrieved per store before fusion
+  reranker_top_k: 50             # kept after reranking
+  reranker_type: jina_v3         # "jina_v3" (default, local GPU) | "llm"
+  # Default reranker model. NOTE: jinaai/jina-reranker-v3 is licensed CC BY-NC 4.0
+  # (non-commercial). For commercial use, switch to a permissively-licensed model,
+  # e.g. BAAI/bge-reranker-v2-m3 (Apache-2.0) or cross-encoder/ms-marco-MiniLM-L-6-v2.
+  reranker_model_name: jinaai/jina-reranker-v3
+  quality_threshold: 0.6         # below → corrective RAG loop triggers
+  max_correction_rounds: 3
+  # Site-specific agent tools (EPICS/archiver/web/code) — OFF by default:
+  enable_web_search: false
+  enable_code_execution: false
+  use_create_react_agent: false
+
+# ── API server ───────────────────────────────────────────────────────────────
+api:
+  host: 0.0.0.0
+  port: 8000
+  request_timeout: 300
+
+# ── Optional site-specific control-system tools (disabled by default) ────────
+pv:
+  enable_pv_tools: false
+  epics_gateway_address: your-epics-gateway.example.com
+  archiver_url: https://your-archiver.example.com

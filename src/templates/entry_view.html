@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ title }}</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 880px; margin: 2em auto; padding: 0 1em; color: #1c1c1c; }
+  h1 { font-size: 1.4em; margin-bottom: 0.2em; }
+  .breadcrumb { color: #666; font-size: 0.9em; margin-bottom: 1.5em; }
+  table.meta { border-collapse: collapse; margin-bottom: 1.5em; width: 100%; }
+  table.meta th, table.meta td { border-bottom: 1px solid #eee; padding: 0.4em 0.6em; text-align: left; vertical-align: top; }
+  table.meta th { width: 9em; color: #444; font-weight: 600; }
+  pre.body { background: #f7f7f7; padding: 1em; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.92em; line-height: 1.45; }
+</style>
+</head>
+<body>
+  <div class="breadcrumb">{{ collection }} / {{ entry_id }}</div>
+  <h1>{{ title }}</h1>
+  {% if metadata_rows %}
+  <table class="meta">
+    <tbody>
+      {% for row in metadata_rows %}
+      <tr><th>{{ row.label }}</th><td>{{ row.value }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+  {% if body %}
+  <pre class="body">{{ body }}</pre>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aps-rag"
+version = "0.1.0"
+description = "APS-RAG — Corrective Agentic Graph-RAG: hybrid (vector + BM25 + knowledge-graph) retrieval with reranking and agentic generation."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "APS-RAG maintainers", email = "maintainer@example.com"}
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "api*", "config*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

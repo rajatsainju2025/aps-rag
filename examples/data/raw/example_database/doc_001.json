@@ -1,0 +1,8 @@
+{
+  "id": "EX-001",
+  "title": "Widget Assembly Line — Overview",
+  "author": "A. Engineer",
+  "creation_datetime": "2026-01-15T09:30:00",
+  "system": "assembly",
+  "content": "The Widget Assembly Line is a synthetic example subsystem used to demonstrate the APS-RAG retrieval pipeline. It consists of three stations: intake, calibration, and packaging. The calibration station adjusts torque to 4.2 N·m and verifies alignment within 0.1 mm before a unit proceeds to packaging. Throughput is nominally 120 units per hour."
+}

@@ -1,0 +1,8 @@
+{
+  "id": "EX-002",
+  "title": "Calibration Station — Fault: torque drift",
+  "author": "B. Technician",
+  "creation_datetime": "2026-02-03T14:05:00",
+  "system": "calibration",
+  "content": "On 2026-02-03 the calibration station reported torque drift exceeding the 4.2 N·m setpoint by 0.6 N·m. Root cause was a worn drive coupling. Resolution: the coupling was replaced and the station re-zeroed. After the fix, torque held within 0.05 N·m over a 200-unit test run. Related component: drive coupling DC-17."
+}

@@ -1,0 +1,47 @@
+# APS-RAG — shipped safe defaults (fallback).
+# The documented, editable template is config/config.example.yaml (copy it to
+# config/config.yaml to customize). Secrets belong in .env, never here.
+environment: development
+
+llm:
+  provider: openai_compatible
+  base_url: https://api.openai.com/v1
+  model: gpt-4o-mini
+  temperature: 0.0
+  max_tokens: 4096
+
+vector:
+  qdrant_host: localhost
+  qdrant_port: 6333
+  es_host: localhost
+  es_port: 9200
+  embedding_model: intfloat/e5-large-v2
+  embedding_device: cuda:0
+  embedding_dim: 1024
+
+graph:
+  neo4j_uri: bolt://localhost:7687
+
+chunking:
+  strategy: granular-chunking
+  pre_chunk_size: 1000
+  pre_chunk_overlap: 200
+  max_chunk_size: 4000
+  chunk_overlap: 200
+
+agent:
+  top_k: 100
+  reranker_top_k: 50
+  reranker_type: jina_v3
+  reranker_model_name: jinaai/jina-reranker-v3
+  enable_web_search: false
+  enable_code_execution: false
+  use_create_react_agent: false
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  request_timeout: 300
+
+pv:
+  enable_pv_tools: false
