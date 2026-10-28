@@ -247,8 +247,7 @@ core RAG (retrieval + generation) and KG + InPARS work without them.
 
 ## Citing
 
-See [`CITATION.cff`](CITATION.cff) (fill in authors/DOI before publishing). The
-InPARS methodology follows Bonifacio et al., *InPars* (SIGIR 2022).
+See [`CITATION.cff`](CITATION.cff). The
 
 ## License
 
