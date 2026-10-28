@@ -8,25 +8,59 @@ abstract: >-
   generation loop.
 type: software
 version: "0.1.0"
+date-released: "2026-07-22"
 license: MIT
-# TODO: fill in authors, DOI, and repository URL before publication.
 authors:
-  - family-names: "TODO-LastName"
-    given-names: "TODO-FirstName"
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
-repository-code: "https://github.com/TODO-org/aps-rag"
-# doi: "10.5281/zenodo.TODO"
+  - family-names: "Sainju"
+    given-names: "Rajat"
+    affiliation: "Argonne National Laboratory"
+repository-code: "https://github.com/rajatsainju2025/aps-rag"
+url: "https://github.com/rajatsainju2025/aps-rag"
 keywords:
   - retrieval-augmented-generation
   - knowledge-graph
   - reranking
   - information-retrieval
   - llm
+  - agents
+preferred-citation:
+  type: article
+  title: "A corrective agentic hybrid RAG and an operations-grounded evaluation for a scientific facility"
+  authors:
+    - family-names: "Sainju"
+      given-names: "Rajat"
+    - family-names: "Jarosz"
+      given-names: "Dariusz"
+    - family-names: "Shang"
+      given-names: "Hairong"
+    - family-names: "Prince"
+      given-names: "Michael"
+    - family-names: "Aydelott"
+      given-names: "Ryan M."
+    - family-names: "Cherukara"
+      given-names: "Mathew J."
+    - family-names: "Sun"
+      given-names: "Yine"
+    - family-names: "Borland"
+      given-names: "Michael"
+  journal: "arXiv preprint arXiv:2607.24663"
+  year: 2026
+  doi: "10.48550/arXiv.2607.24663"
+  url: "https://arxiv.org/abs/2607.24663"
 references:
   - type: article
     title: "InPars: Data Augmentation for Information Retrieval using Large Language Models"
     authors:
-      - family-names: Bonifacio
-        given-names: Luiz
+      - family-names: "Bonifacio"
+        given-names: "Luiz"
+      - family-names: "Abonizio"
+        given-names: "Hugo"
+      - family-names: "Fadaee"
+        given-names: "Marzieh"
+      - family-names: "Nogueira"
+        given-names: "Rodrigo"
+    journal: "arXiv preprint arXiv:2202.05144"
     year: 2022
+    doi: "10.48550/arXiv.2202.05144"
+    url: "https://arxiv.org/abs/2202.05144"
     notes: "Methodology behind scripts/generate_inpars.py (question + nuggets generation)."
