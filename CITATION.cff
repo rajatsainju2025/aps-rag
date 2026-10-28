@@ -25,7 +25,7 @@ keywords:
   - agents
 preferred-citation:
   type: article
-  title: "A corrective agentic hybrid RAG and an operations-grounded evaluation for a scientific facility"
+  title: "APS-RAG: A corrective agentic hybrid RAG and an operations-grounded evaluation for a scientific facility"
   authors:
     - family-names: "Sainju"
       given-names: "Rajat"
